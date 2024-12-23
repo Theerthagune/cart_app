@@ -1,0 +1,105 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for the navigation bar */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    color: #4a5568; /* Gray-700 */
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #4299e1; /* Blue-500 */
+}
+/*swiper*/
+.swiper {
+    width: 100%;
+    height: 300px;
+}
+.swiper-slide {
+    background-size: cover;
+    background-position: center;
+}
+/* Mobile menu styles */
+.mobile-menu {
+    display: none;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+/* Custom styles for the slider */
+.slider-container {
+    margin-top: 1.5rem;
+}
+
+.slider-slide {
+    height: 16rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.slider-slide .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Footer styles */
+footer {
+    background-color: #1a202c; /* Gray-800 */
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+/* Custom styles for the Account Page */
+.tab-button {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid transparent;
+}
+
+.tab-button:hover {
+    border-bottom: 2px solid #3b82f6;
+}
+
+.account-section {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Custom styling for form elements */
+.form-input {
+    @apply w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.form-label {
+    @apply block text-gray-700 font-medium mb-2;
+}
+
+.form-button {
+    @apply w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300;
+}
+
+.form-container {
+    @apply max-w-lg mx-auto mt-10 bg-white p-6 rounded-lg shadow-md;
+}  
