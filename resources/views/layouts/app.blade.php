@@ -28,9 +28,18 @@
             @endisset
 
             <!-- Page Content -->
-            <main>
-                {{ $slot }}
+            <main class= "container mx-auto py-8">
+            @yield('content')
+
             </main>
         </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-6 mt-12">
+            <div class="container mx-auto text-center">
+                <p>&copy; {{ date('Y') }} Cart Web App. All rights reserved.</p>
+                <p class="mt-2">Designed with using Laravel and Tailwind CSS</p>
+            </div>
+        </footer>
     </body>
 </html>

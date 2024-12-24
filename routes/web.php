@@ -29,5 +29,8 @@ Route::get('/user/create', [UserController::class, 'showForm'])->name('user.crea
 // Handle form submission
 Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
 
+Route::get('/dashboard', function () {
+    return redirect()->route('shop'); // Redirect to shop or any other route you prefer
+})->name('dashboard');
 // Authentication routes 
 require __DIR__.'/auth.php';

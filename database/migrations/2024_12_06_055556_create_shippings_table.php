@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('shipping_address', 255)->nullable();
             $table->double('shipping_cost', 10, 0)->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('user')->onDelete('cascade');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

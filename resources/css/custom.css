@@ -1,9 +1,4 @@
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Custom styles for the navigation bar */
+/* NAVIGATION BAR */
 .navbar {
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -17,16 +12,8 @@
 .navbar a:hover {
     color: #4299e1; /* Blue-500 */
 }
-/*swiper*/
-.swiper {
-    width: 100%;
-    height: 300px;
-}
-.swiper-slide {
-    background-size: cover;
-    background-position: center;
-}
-/* Mobile menu styles */
+
+/* MOBILE MENU */
 .mobile-menu {
     display: none;
 }
@@ -35,7 +22,18 @@
     display: block;
 }
 
-/* Custom styles for the slider */
+/* SWIPER SLIDER */
+.swiper {
+    width: 100%;
+    height: 300px;
+}
+
+.swiper-slide {
+    background-size: cover;
+    background-position: center;
+}
+
+/* CUSTOM SLIDER */
 .slider-container {
     margin-top: 1.5rem;
 }
@@ -64,15 +62,21 @@
     font-weight: 600;
 }
 
-/* Footer styles */
+/* FOOTER */
 footer {
     background-color: #1a202c; /* Gray-800 */
     color: white;
     text-align: center;
     padding: 1.5rem 0;
+    border-top: 2px solid #4a5568;
 }
 
-/* Custom styles for the Account Page */
+footer p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ACCOUNT PAGE */
 .tab-button {
     cursor: pointer;
     padding: 0.5rem 1rem;
@@ -80,14 +84,14 @@ footer {
 }
 
 .tab-button:hover {
-    border-bottom: 2px solid #3b82f6;
+    border-bottom: 2px solid #3b82f6; /* Blue */
 }
 
 .account-section {
     transition: opacity 0.3s ease-in-out;
 }
 
-/* Custom styling for form elements */
+/* FORM ELEMENTS */
 .form-input {
     @apply w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500;
 }
@@ -102,4 +106,22 @@ footer {
 
 .form-container {
     @apply max-w-lg mx-auto mt-10 bg-white p-6 rounded-lg shadow-md;
-}  
+}
+
+/* GLOBAL STYLES */
+body {
+    background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* GENERAL BUTTONS */
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    opacity: 0.9;
+}
