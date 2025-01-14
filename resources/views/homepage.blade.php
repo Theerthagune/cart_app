@@ -39,11 +39,20 @@
 
             <!-- Product 1 -->
             <div class="border rounded-lg shadow hover:shadow-lg overflow-hidden">
-                <img src="{{ asset('images/fruits3.jpg') }}" alt="Product 1" class="w-full h-48 object-cover">
+                <img src="{{ asset('images/apples.jpg') }}" alt="Product 1" class="w-full h-48 object-cover">
                 <div class="p-4">
                     <h3 class="text-xl font-bold mb-2">Fresh Apples</h3>
                     <p class="text-gray-700 mb-2">$5.99 per kg</p>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add to Cart</button>
+                    <form method="POST" action="{{ route('cart.store') }}">
+                        @csrf
+                        <input type="hidden" name="item_name" value="Fresh Apples">
+                        <input type="hidden" name="item_image" value="{{ asset('images/apples.jpg') }}">
+                        <input type="hidden" name="price" value="1.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                            Add to Cart
+                        </button>
+                    </form>
                 </div>
             </div>
 
@@ -53,7 +62,16 @@
                 <div class="p-4">
                     <h3 class="text-xl font-bold mb-2">Organic Bananas</h3>
                     <p class="text-gray-700 mb-2">$2.99 per bunch</p>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add to Cart</button>
+                    <form method="POST" action="{{ route('cart.store') }}">
+                        @csrf
+                        <input type="hidden" name="item_name" value="Fresh Bananas">
+                        <input type="hidden" name="item_image" value="{{ asset('images/bananas.jpg') }}">
+                        <input type="hidden" name="price" value="2.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                            Add to Cart
+                        </button>
+                    </form>                
                 </div>
             </div>
 
@@ -63,8 +81,18 @@
                 <div class="p-4">
                     <h3 class="text-xl font-bold mb-2">Fresh Carrots</h3>
                     <p class="text-gray-700 mb-2">$1.99 per kg</p>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add to Cart</button>
-                </div>
+                    <form method="POST" action="{{ route('cart.store') }}">
+                        @csrf
+                        <input type="hidden" name="item_name" value="Fresh Carrots">
+                        <input type="hidden" name="item_image" value="{{ asset('images/carrots.jpg') }}">
+                        <input type="hidden" name="price" value="1.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                            Add to Cart
+                        </button>
+                    </form>                
+            
+                </div> 
             </div>
 
             <!-- Product 4 -->
@@ -73,7 +101,16 @@
                 <div class="p-4">
                     <h3 class="text-xl font-bold mb-2">Fresh Oranges</h3>
                     <p class="text-gray-700 mb-2">$4.99 per kg</p>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add to Cart</button>
+                    <form method="POST" action="{{ route('cart.store') }}">
+                        @csrf
+                        <input type="hidden" name="item_name" value="Fresh Oranges">
+                        <input type="hidden" name="item_image" value="{{ asset('images/fruits1.jpg') }}">
+                        <input type="hidden" name="price" value="4.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                            Add to Cart
+                        </button>
+                    </form>
                 </div>
             </div>
 
@@ -83,7 +120,16 @@
                 <div class="p-4">
                     <h3 class="text-xl font-bold mb-2">Fresh Bellpeppers</h3>
                     <p class="text-gray-700 mb-2">$1.99 per kg</p>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add to Cart</button>
+                    <form method="POST" action="{{ route('cart.store') }}">
+                        @csrf
+                        <input type="hidden" name="item_name" value="Fresh Bellpeppers">
+                        <input type="hidden" name="item_image" value="{{ asset('images/bellpepper.jpg') }}">
+                        <input type="hidden" name="price" value="1.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                            Add to Cart
+                        </button>
+                    </form>
                 </div>
             </div>
 
@@ -93,7 +139,16 @@
                 <div class="p-4">
                     <h3 class="text-xl font-bold mb-2">Fresh Limes</h3>
                     <p class="text-gray-700 mb-2">$3.99 per kg</p>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add to Cart</button>
+                    <form method="POST" action="{{ route('cart.store') }}">
+                        @csrf
+                        <input type="hidden" name="item_name" value="Fresh Limes">
+                        <input type="hidden" name="item_image" value="{{ asset('images/limes.jpg') }}">
+                        <input type="hidden" name="price" value="3.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                            Add to Cart
+                        </button>
+                    </form>
                 </div>
             </div>
 

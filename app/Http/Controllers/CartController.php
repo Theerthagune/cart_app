@@ -2,63 +2,54 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
     public function index()
     {
-        $cartItems = Auth::check() ? 
-            Cart::where('user_id', Auth::id())->get() : 
-            session()->get('cart', []);
-
+        // Retrieve cart items from the session
+        $cartItems = session()->get('cart', []);
         return view('cart.index', compact('cartItems'));
     }
 
     public function store(Request $request)
     {
-        if (Auth::check()) {
-            Cart::create([
-                'user_id' => Auth::id(),
-                'item_name' => $request->item_name,
-                'item_image' => $request->item_image,
-                'price' => $request->price,
-                'quantity' => $request->quantity,
-            ]);
-        } else {
-            $cart = session()->get('cart', []);
-            $cart[] = $request->all();
-            session()->put('cart', $cart);
-        }
+        // Retrieve the existing cart or initialize an empty one
+        $cart = session()->get('cart', []);
+
+        // Add the new item to the cart
+        $cart[] = [
+            'item_name' => $request->input('item_name'),
+            'item_image' => $request->input('item_image'),
+            'price' => $request->input('price'),
+            'quantity' => $request->input('quantity'),
+        ];
+
+        // Save the updated cart to the session
+        session()->put('cart', $cart);
 
         return redirect()->back()->with('success', 'Item added to cart!');
     }
 
-    public function update(Request $request, $id)
+    public function remove(Request $request, $index)
     {
-        if (Auth::check()) {
-            $cartItem = Cart::findOrFail($id);
-            $cartItem->update(['quantity' => $request->quantity]);
-        } else {
-            $cart = session()->get('cart');
-            $cart[$id]['quantity'] = $request->quantity;
-            session()->put('cart', $cart);
-        }
+        // Retrieve the cart from the session
+        $cart = session()->get('cart', []);
 
-        return redirect()->back()->with('success', 'Cart updated!');
-    }
-
-    public function destroy($id)
-    {
-        if (Auth::check()) {
-            Cart::destroy($id);
-        } else {
-            $cart = session()->get('cart');
-            unset($cart[$id]);
-            session()->put('cart', $cart);
+        // Remove the item by its index
+        if (isset($cart[$index])) {
+            unset($cart[$index]);
+            session()->put('cart', array_values($cart)); // Reindex the array
         }
 
         return redirect()->back()->with('success', 'Item removed from cart!');
+    }
+
+    public function clear()
+    {
+        // Clear the cart session
+        session()->forget('cart');
+        return redirect()->back()->with('success', 'Cart cleared!');
     }
 }

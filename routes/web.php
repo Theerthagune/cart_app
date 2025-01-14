@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CartController;
 
@@ -23,25 +25,30 @@ Route::get('/about', function () {
 Route::get('/account', function () {
     return view('account');
 })->name('account');
-
-// Show the registration form
-Route::get('/user/create', [UserController::class, 'showForm'])->name('user.create');
-
-// Handle form submission
-Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
-
-Route::get('/dashboard', function () {
-    return redirect()->route('shop'); // Redirect to shop or any other route you prefer
-})->name('dashboard');
-
-/*Route::get('/cart', function () {
-    return view('cart');
-})->name('cart');*/
-
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add', [CartController::class, 'store'])->name('cart.store');
-Route::patch('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
-Route::delete('/cart/remove/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
 
-// Authentication routes 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+//routes for login and register
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
+Route::get('/register', function () {
+    return view('auth.register');
+})->name('register');
+/*
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+*/
+
 require __DIR__.'/auth.php';
