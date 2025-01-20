@@ -55,6 +55,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+route::get('/products/product', [ProductController::class, 'show'])->name('products.show');
+//route to get products from the database
+Route::get('/shop', [ProductController::class, 'show'])->name('shop');
 
 
 require __DIR__.'/auth.php';

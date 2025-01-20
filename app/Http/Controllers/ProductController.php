@@ -14,6 +14,12 @@ class ProductController extends Controller
         return view('products.index', compact('products'));
     }
 
+     public function show()
+    {
+        $products = Product::all(); // show products in the shop
+        return view('shop', compact('products'));
+    }
+
     public function create()
     {
         return view('products.create'); // Show the product creation form

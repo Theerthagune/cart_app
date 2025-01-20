@@ -21,6 +21,7 @@
             <p>Quantity: {{ $product->quantity }}</p>
             <p>Category: {{ $product->category }}</p>
         </div>
+        @endforeach
        
     </div>
 </div>

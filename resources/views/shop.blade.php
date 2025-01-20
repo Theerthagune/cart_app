@@ -24,7 +24,7 @@
                 Fruits
             </button>
         </div>
-    </div>
+        </div>
 
 
         <!-- Vegetables Category -->
@@ -193,9 +193,28 @@
                     </form>
                 </div>
             </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            @foreach ($products as $product)
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold">{{ $product->product_name }}</h3>
+                    <p class="text-gray-700">{{ $product->description }}</p>
+                    <p class="text-green-500 font-bold">Price: ${{ $product->price }}</p>
+                    <p class="text-gray-500">Quantity: {{ $product->quantity }}</p>
+                    <p class="text-gray-500">Category: {{ $product->category }}</p>
+                    
+                </div>
+            @endforeach
+            </div>
+
+            
             
         </div>
     </div>
+
+
+    
+   
     
     <script>
         // JavaScript to toggle categories
