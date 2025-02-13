@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id('user_id'); 
-            $table->string('user_name', 255); // Use 'user_name' instead of 'name'
-            $table->string('user_email', 255)->unique(); // Use 'user_email' instead of 'email'
+            $table->string('name', 255); // Use 'user_name' instead of 'name'
+            $table->string('email', 255)->unique(); // Use 'user_email' instead of 'email'
             $table->string('user_number', 255);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 255);

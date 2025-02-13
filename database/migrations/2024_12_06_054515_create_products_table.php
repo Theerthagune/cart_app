@@ -18,8 +18,7 @@ return new class extends Migration
             $table->decimal('price', 19, 0);
             $table->integer('quantity');
             $table->string('category', 255)->nullable();
-            $table->unsignedBigInteger('cart_id')->nullable();
-            $table->foreign('cart_id')->references('cart_id')->on('carts')->onDelete('cascade');
+            $table->string('image')->nullable(); // Store the image file path
             $table->timestamps();
         });
     }

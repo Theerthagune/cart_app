@@ -26,18 +26,41 @@ class ProductController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'product_name' => 'required',
-            'description' => 'nullable',
-            'price' => 'required|numeric',
-            'quantity' => 'required|integer',
-            'category' => 'nullable',
-            'cart_id' => 'nullable|integer', 
-        ]);
+    {  
+        try {
 
-        Product::create($request->all());
+            //dd($request->all());
+            $request->validate([
+                'product_name' => 'required|string|max:255',
+                'description' => 'nullable|string',
+                'price' => 'required|numeric',
+                'quantity' => 'required|integer',
+                'category' => 'required|in:Fruits,Vegetables',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120',
+            ]);
 
-        return redirect()->back()->with('success', 'Product added successfully!');
+            $imagePath = null;
+            if ($request->hasFile('image')) {
+                $imagePath = $request->file('image')->store('products', 'public');
+            }
+            //dd($imagePath);
+            $Product = Product::create([
+                'product_name' => $request->input('product_name'),
+                'description' => $request->input('description'),
+                'price' => $request->input('price'),
+                'quantity' => $request->input('quantity'),
+                'category' => $request->input('category'),
+                'image' => $imagePath,
+            ]);
+
+            //dd($Product);
+
+            return redirect()->back()->with('success', 'Product added successfully!');
+        } catch (\Exception $e) {
+            return redirect()->back()
+                ->with('error', 'Error: ' . $e->getMessage())
+                ->withInput(); // Preserve form input on error
+        }
     }
+    
 }

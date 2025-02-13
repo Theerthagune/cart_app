@@ -26,8 +26,12 @@ Route::get('/about', function () {
 Route::get('/account', function () {
     return view('account');
 })->name('account');
+
+//cart routes
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add', [CartController::class, 'store'])->name('cart.store');
+Route::delete('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
+Route::delete('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

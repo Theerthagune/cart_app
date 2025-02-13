@@ -12,7 +12,16 @@
     <div class="container mx-auto mt-12">
         <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
             <h2 class="text-3xl font-bold text-center mb-6">Add Product</h2>
-            <form action="{{ route('products.store') }}" method="POST">
+            @if ($errors->any())
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+                <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data" onsubmit="alert('Form submitted!');">
                 @csrf
                 <div class="mb-4">
                     <label for="product_name" class="block text-gray-700 font-medium mb-2">Product Name</label>
@@ -38,8 +47,12 @@
                         <option value="Vegetables">Vegetables</option>
                     </select>
                 </div>
+                <div class="mb-4">
+                    <label for="image" class="block text-gray-700 font-medium mb-2">Product Image</label>
+                    <input type="file" name="image" id="image" class="w-full border rounded-lg px-4 py-2" required>
+                </div>
                 <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg">Add Product</button>
-            </form>
+                </form>
         </div>
     </div>
 </body>
