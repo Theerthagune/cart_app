@@ -1,39 +1,57 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mx-auto mt-10">
-    <h2 class="text-3xl font-bold mb-6">Your Cart</h2>
+<div class="container mx-auto mt-12">
+    <h2 class="text-3xl font-bold text-center mb-6">Shopping Cart</h2>
 
-    @if($cartItems->isEmpty())
-        <p class="text-gray-700">Your cart is empty.</p>
-    @else
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            @foreach($cartItems as $item)
-                <div class="border rounded-lg shadow overflow-hidden">
-                    <img src="{{ $item->item_image }}" alt="{{ $item->item_name }}" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-4">
-                        <h3 class="text-xl font-bold mb-2">{{ $item->item_name }}</h3>
-                        <p class="text-gray-700 mb-2">Price: ${{ $item->price }}</p>
-                        <p class="text-gray-700 mb-2">Quantity: {{ $item->quantity }}</p>
+    @if(session('success'))
+        <div class="bg-green-500 text-white p-2 rounded mb-4">{{ session('success') }}</div>
+    @endif
 
-                        <!-- Update Quantity -->
-                        <form method="POST" action="{{ route('cart.update', $item->id) }}">
+    @if(session('cart') && count(session('cart')) > 0)
+        <table class="w-full border-collapse border border-gray-300">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border p-2">Image</th>
+                    <th class="border p-2">Product</th>
+                    <th class="border p-2">Price</th>
+                    <th class="border p-2">Quantity</th>
+                    <th class="border p-2">Total</th>
+                    <th class="border p-2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(session('cart') as $id => $details)
+                <tr class="border-b">
+                    <td class="p-2"><img src="{{ asset('storage/' . $details['image']) }}" width="50"></td>
+                    <td class="p-2">{{ $details['product_name'] }}</td>
+                    <td class="p-2">${{ $details['price'] }}</td>
+                    <td class="p-2">
+                        <form >
                             @csrf
-                            @method('PATCH')
-                            <input type="number" name="quantity" value="{{ $item->quantity }}" class="w-16 border rounded mb-2">
-                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Update</button>
+                            <input type="hidden" name="id" value="{{ $id }}">
+                            <input type="number" name="quantity" value="{{ $details['quantity'] }}" class="w-16 border p-1">
+                            <button type="submit" class="bg-blue-500 text-white px-2 py-1 rounded ml-2">Update</button>
                         </form>
-
-                        <!-- Remove Item -->
-                        <form method="POST" action="{{ route('cart.destroy', $item->id) }}" class="mt-2">
+                    </td>
+                    <td class="p-2">${{ $details['price'] * $details['quantity'] }}</td>
+                    <td class="p-2">
+                        <form>
                             @csrf
-                            @method('DELETE')
-                            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Remove</button>
+                            <input type="hidden" name="id" value="{{ $id }}">
+                            <button type="submit" class="bg-red-500 text-white px-2 py-1 rounded">Remove</button>
                         </form>
-                    </div>
-                </div>
-            @endforeach
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <div class="flex justify-between mt-4">
+            <a href="" class="bg-red-500 text-white px-4 py-2 rounded">Clear Cart</a>
+            <a href="#" class="bg-green-500 text-white px-4 py-2 rounded">Proceed to Checkout</a>
         </div>
+    @else
+        <p class="text-center text-gray-500">Your cart is empty.</p>
     @endif
 </div>
 @endsection

@@ -24,194 +24,39 @@
                 Fruits
             </button>
         </div>
-        </div>
+        
 
 
-        <!-- Vegetables Category -->
-        <div id="vegetables" class="category-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Vegetable 1 -->
-            <div class="border rounded-lg shadow hover:shadow-lg overflow-hidden">
-                <img src="{{ asset('images/carrots.jpg') }}" alt="Carrots" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2">Fresh Carrots</h3>
-                    <p class="text-gray-700 mb-2">$1.99 per kg</p>
-                    <form method="POST" action="{{ route('cart.store') }}">
-                        @csrf
-                        <input type="hidden" name="item_name" value="Fresh Carrots">
-                        <input type="hidden" name="item_image" value="{{ asset('images/carrots.jpg') }}">
-                        <input type="hidden" name="price" value="1.99">
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                            Add to Cart
-                        </button>
-                    </form>  
-                </div>
-            </div>
-            <!-- Vegetable 2 -->
-            <div class="border rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="{{ asset('images/brocoli.jpg') }}" alt="brocolii" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-bold mb-2">Fresh Broccoli</h3>
-                        <p class="text-gray-700 mb-2">$2.49 per kg</p>
-                        <form method="POST" action="{{ route('cart.store') }}">
-                        @csrf
-                        <input type="hidden" name="item_name" value="Fresh Broccoli">
-                        <input type="hidden" name="item_image" value="{{ asset('images/brocoli.jpg') }}">
-                        <input type="hidden" name="price" value="2.49">
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                            Add to Cart
-                        </button>
-                    </form>
-                    </div>
-                </div>
-
-                <!-- Vegetable 3 -->
-                <div class="border rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="{{ asset('images/beans.jpg') }}" alt="beans" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-bold mb-2">Fresh Beans</h3>
-                        <p class="text-gray-700 mb-2">$3.49 per kg</p>
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add to Cart</button>
-                    </div>
-                </div>
-
-                <!-- Vegetable 4 -->
-                <div class="border rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="{{ asset('images/bellpepper.jpg') }}" alt="bellpepper" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-bold mb-2">Fresh Bellpeppers</h3>
-                        <p class="text-gray-700 mb-2">$1.55 per kg</p>
-                        <form method="POST" action="{{ route('cart.store') }}">
-                        @csrf
-                        <input type="hidden" name="item_name" value="Fresh Bellpeppers">
-                        <input type="hidden" name="item_image" value="{{ asset('images/bellpepper.jpg') }}">
-                        <input type="hidden" name="price" value="1.99">
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                            Add to Cart
-                        </button>
-                    </form>
-                    </div>
-                </div>
-
-                <!-- Vegetable 5 -->
-                <div class="border rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="{{ asset('images/bruselsprouts.jpg') }}" alt="bruselsprouts" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-bold mb-2">Fresh Bruselsprouts</h3>
-                        <p class="text-gray-700 mb-2">$2.99 per kg</p>
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add to Cart</button>
-                    </div>
-                </div>
-
-                <!-- Vegetable 6 -->
-                <div class="border rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="{{ asset('images/ladiesfinngers.jpg') }}" alt="Ladiesfingers" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-bold mb-2">Fresh Ladies Fingers</h3>
-                        <p class="text-gray-700 mb-2">$2.00 per kg</p>
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add to Cart</button>
-                    </div>
-                </div>
-        </div>
-
-        <!-- Fruits Category -->
-        <div id="fruits" class="category-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 hidden">
-            <!-- Fruit 1 -->
-            <div class="border rounded-lg shadow hover:shadow-lg overflow-hidden">
-                <img src="{{ asset('images/apples.jpg') }}" alt="Apples" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2">Fresh Apples</h3>
-                    <p class="text-gray-700 mb-2">$3.99 per kg</p>
-                    <form method="POST" action="{{ route('cart.store') }}">
-                        @csrf
-                        <input type="hidden" name="item_name" value="Fresh Apples">
-                        <input type="hidden" name="item_image" value="{{ asset('images/apples.jpg') }}">
-                        <input type="hidden" name="price" value="1.99">
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                            Add to Cart
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Fruit 2 -->
-            <div class="border rounded-lg shadow hover:shadow-lg overflow-hidden">
-                <img src="{{ asset('images/bananas.jpg') }}" alt="Bannanas" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2">Fresh Bannanas</h3>
-                    <p class="text-gray-700 mb-2">$2.99 per kg</p>
-                    <form method="POST" action="{{ route('cart.store') }}">
-                        @csrf
-                        <input type="hidden" name="item_name" value="Fresh Bananas">
-                        <input type="hidden" name="item_image" value="{{ asset('images/bananas.jpg') }}">
-                        <input type="hidden" name="price" value="2.99">
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                            Add to Cart
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Fruit 3 -->
-            <div class="border rounded-lg shadow hover:shadow-lg overflow-hidden">
-                <img src="{{ asset('images/oranges.jpg') }}" alt="Oranges" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2">Fresh Oranges</h3>
-                    <p class="text-gray-700 mb-2">$5.99 per kg</p>
-                    <form method="POST" action="{{ route('cart.store') }}">
-                        @csrf
-                        <input type="hidden" name="item_name" value="Fresh Oranges">
-                        <input type="hidden" name="item_image" value="{{ asset('images/fruits1.jpg') }}">
-                        <input type="hidden" name="price" value="4.99">
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                            Add to Cart
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Fruit 4 -->
-            <div class="border rounded-lg shadow hover:shadow-lg overflow-hidden">
-                <img src="{{ asset('images/limes.jpg') }}" alt="Limes" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2">Fresh Limes</h3>
-                    <p class="text-gray-700 mb-2">$2.99 per kg</p>
-                    <form method="POST" action="{{ route('cart.store') }}">
-                        @csrf
-                        <input type="hidden" name="item_name" value="Fresh Limes">
-                        <input type="hidden" name="item_image" value="{{ asset('images/limes.jpg') }}">
-                        <input type="hidden" name="price" value="2.99">
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                            Add to Cart
-                        </button>
-                    </form>
-                </div>
-            </div>
+        
 
             
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             @foreach ($products as $product)
             <div class="bg-white p-4 rounded-lg shadow-md">
-                @if ($product->image)
-                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->product_name }}" class="w-full h-40 object-cover mb-4 rounded">
-                @endif
-                <h3 class="text-xl font-bold">{{ $product->product_name }}</h3>
-                <p class="text-gray-700">{{ $product->description }}</p>
-                <p class="text-green-500 font-bold">Price: ${{ $product->price }}</p>
-                <p class="text-gray-500">Quantity: {{ $product->quantity }}</p>
-                <p class="text-blue-500">Category: {{ $product->category }}</p>
+            @if ($product->image)
+                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->product_name }}" class="w-full h-40 object-cover mb-4 rounded">
+            @endif
+            <h3 class="text-xl font-bold">{{ $product->product_name }}</h3>
+            <p class="text-gray-700">{{ $product->description }}</p>
+            <p class="text-green-500 font-bold">Price: ${{ $product->price }}</p>
+            <p class="text-gray-500">Quantity: {{ $product->quantity }}</p>
+            <p class="text-blue-500">Category: {{ $product->category }}</p>
+            <!-- Add to Cart Button -->
+             
+            <button onclick="addToCart({{ $product->product_id }}, '{{ $product->product_name }}', {{ $product->price }})" class="bg-blue-500 text-white px-4 py-2 rounded-lg mt-3">
+                    Add to Cart
+            </button>
             </div>
             @endforeach
-            </div>
+        </div>
+
+
+        
+
 
             
             
-        </div>
+        
     </div>
 
 
@@ -229,6 +74,51 @@
             document.getElementById('fruits').classList.remove('hidden');
             document.getElementById('vegetables').classList.add('hidden');
         });
+    </script>
+    <script>
+        // Function to get cart from localStorage
+        function getCart() {
+            return JSON.parse(localStorage.getItem('cart')) || [];
+        }
+
+        // Function to save cart to localStorage
+        function saveCart(cart) {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Function to add items to the cart
+        function addToCart(id, name, price) {
+            let cart = getCart();
+            let existingProduct = cart.find(item => item.id === id);
+
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push({ id, name, price, quantity: 1 });
+            }
+
+            saveCart(cart);
+            alert(name + " added to cart!");
+        }
+
+        // Function to display cart items
+        function showCart() {
+            let cart = getCart();
+            let cartList = document.getElementById('cart-items');
+            cartList.innerHTML = "";
+
+            cart.forEach(product => {
+                let listItem = document.createElement("li");
+                listItem.textContent = `${product.name} - $${product.price} x ${product.quantity}`;
+                cartList.appendChild(listItem);
+            });
+        }
+
+        // Function to clear the cart
+        function clearCart() {
+            localStorage.removeItem('cart');
+            showCart();
+        }
     </script>
 
     

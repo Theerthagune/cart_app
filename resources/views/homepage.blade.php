@@ -43,7 +43,7 @@
                 <div class="p-4">
                     <h3 class="text-xl font-bold mb-2">Fresh Apples</h3>
                     <p class="text-gray-700 mb-2">$5.99 per kg</p>
-                    <form method="POST" action="{{ route('cart.store') }}">
+                    <form method=" " action=" ">
                         @csrf
                         <input type="hidden" name="item_name" value="Fresh Apples">
                         <input type="hidden" name="item_image" value="{{ asset('images/apples.jpg') }}">
@@ -62,7 +62,7 @@
                 <div class="p-4">
                     <h3 class="text-xl font-bold mb-2">Organic Bananas</h3>
                     <p class="text-gray-700 mb-2">$2.99 per bunch</p>
-                    <form method="POST" action="{{ route('cart.store') }}">
+                    <form method=" " action=" ">
                         @csrf
                         <input type="hidden" name="item_name" value="Fresh Bananas">
                         <input type="hidden" name="item_image" value="{{ asset('images/bananas.jpg') }}">
@@ -81,7 +81,7 @@
                 <div class="p-4">
                     <h3 class="text-xl font-bold mb-2">Fresh Carrots</h3>
                     <p class="text-gray-700 mb-2">$1.99 per kg</p>
-                    <form method="POST" action="{{ route('cart.store') }}">
+                    <form method=" " action=" ">
                         @csrf
                         <input type="hidden" name="item_name" value="Fresh Carrots">
                         <input type="hidden" name="item_image" value="{{ asset('images/carrots.jpg') }}">
@@ -101,7 +101,7 @@
                 <div class="p-4">
                     <h3 class="text-xl font-bold mb-2">Fresh Oranges</h3>
                     <p class="text-gray-700 mb-2">$4.99 per kg</p>
-                    <form method="POST" action="{{ route('cart.store') }}">
+                    <form method=" " action=" ">
                         @csrf
                         <input type="hidden" name="item_name" value="Fresh Oranges">
                         <input type="hidden" name="item_image" value="{{ asset('images/fruits1.jpg') }}">
@@ -120,7 +120,7 @@
                 <div class="p-4">
                     <h3 class="text-xl font-bold mb-2">Fresh Bellpeppers</h3>
                     <p class="text-gray-700 mb-2">$1.99 per kg</p>
-                    <form method="POST" action="{{ route('cart.store') }}">
+                    <form method=" " action=" ">
                         @csrf
                         <input type="hidden" name="item_name" value="Fresh Bellpeppers">
                         <input type="hidden" name="item_image" value="{{ asset('images/bellpepper.jpg') }}">
@@ -139,7 +139,7 @@
                 <div class="p-4">
                     <h3 class="text-xl font-bold mb-2">Fresh Limes</h3>
                     <p class="text-gray-700 mb-2">$3.99 per kg</p>
-                    <form method="POST" action="{{ route('cart.store') }}">
+                    <form method=" " action=" ">
                         @csrf
                         <input type="hidden" name="item_name" value="Fresh Limes">
                         <input type="hidden" name="item_image" value="{{ asset('images/limes.jpg') }}">
